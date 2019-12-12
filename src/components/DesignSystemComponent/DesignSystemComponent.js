@@ -1,11 +1,12 @@
 import React from 'react';
-// import { UIButton } from '@resultadosdigitais/tangram-react';
 
+// import { UIButton } from '@resultadosdigitais/tangram-react';
+import Button from 'react-bootstrap/Button';
 import Label from '../Label'
 
 const componentRelations = {
   Label: Label,
-  // UIButton: UIButton
+  UIButton: Button
 };
 
 const DesignSystemComponent = ({ type, children, props }) => {

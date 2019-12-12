@@ -8,7 +8,7 @@ const Preview = props => {
 
   const [ _, drop ] = useDrop({
     accept: "component",
-    drop: item => { alert(item.component); setComponent(item.component) },
+    drop: item => setComponent(item.component),
     collect: monitor => ({ isOver: !!monitor.isOver() })
   })
 

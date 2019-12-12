@@ -5,7 +5,7 @@ import DragableListItem from '../DragableListItem';
 const ComponentList = () => (
   <ListGroup>
     <DragableListItem component="Label">Label</DragableListItem>
-    <DragableListItem component="Label">Button</DragableListItem>
+    <DragableListItem component="UIButton">Button</DragableListItem>
   </ListGroup>
 )
 
