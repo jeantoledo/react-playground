@@ -4,11 +4,11 @@ import { useDrop } from 'react-dnd';
 import DesignSystemComponent from '../DesignSystemComponent'
 
 const Preview = props => {
-  const [ component, setComponent ] = useState("Component1")
+  const [ component, setComponent ] = useState("Label")
 
   const [ _, drop ] = useDrop({
     accept: "component",
-    drop: item => setComponent(item.component),
+    drop: item => { alert(item.component); setComponent(item.component) },
     collect: monitor => ({ isOver: !!monitor.isOver() })
   })
 

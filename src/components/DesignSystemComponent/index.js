@@ -1,10 +1,11 @@
 import React from 'react';
+// import { UIButton } from '@resultadosdigitais/tangram-react';
 
 import Label from '../Label'
 
 const componentRelations = {
-  Component1: Label,
-  Component2: Label
+  Label: Label,
+  // UIButton: UIButton
 };
 
 const DesignSystemComponent = ({ type, children, props }) => {

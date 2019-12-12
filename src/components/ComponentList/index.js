@@ -4,8 +4,8 @@ import DragableListItem from '../DragableListItem';
 
 const ComponentList = () => (
   <ListGroup>
-    <DragableListItem component="Component1">Componente 1</DragableListItem>
-    <DragableListItem component="Component2">Componente 2</DragableListItem>
+    <DragableListItem component="Label">Label</DragableListItem>
+    <DragableListItem component="Label">Button</DragableListItem>
   </ListGroup>
 )
 
