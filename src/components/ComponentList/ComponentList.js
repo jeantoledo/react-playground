@@ -6,6 +6,7 @@ const ComponentList = () => (
   <ListGroup>
     <DragableListItem component="Label">Label</DragableListItem>
     <DragableListItem component="UIButton">Button</DragableListItem>
+    <DragableListItem component="Textbox">Textbox</DragableListItem>
   </ListGroup>
 )
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 
-import DesignSystemComponent from '../DesignSystemComponent'
+import Component from '../Component'
 
 const Preview = props => {
   const [ component, setComponent ] = useState("Label")
@@ -14,7 +14,7 @@ const Preview = props => {
 
   return (
     <div ref={drop} style={{ backgroundColor: 'red' }}>
-      <DesignSystemComponent type={component}>{component}</DesignSystemComponent>
+      <Component type={component}>{component}</Component>
     </div>
   );
 }
