@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import SplitPane from 'react-split-pane';
 import './App.css';
 import './UISplitPane.style.css';
@@ -7,6 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { useDrag, useDrop } from 'react-dnd';
 import { DndProvider } from 'react-dnd';
 import Backend from 'react-dnd-html5-backend';
+import Label from './components/Label';
 
 const ItemTypes = {
   ListGroupItem: 'ListGroup.Item',
@@ -27,19 +28,34 @@ const ItemDragable = ({ isDragging, children, component }) => {
   )
 }
 
-const Preview = () => {
-  const [{ isOver }, drop] = useDrop({
-		accept: ItemTypes.ListGroupItem,
-		drop: (item) => alert(item.component),
-		collect: monitor => ({
-			isOver: !!monitor.isOver(),
-		}),
+const Preview = props => {
+  const [ component, setComponent ] = useState("Component1")
+
+  const [ { isOver }, drop] = useDrop({
+    accept: ItemTypes.ListGroupItem,
+    drop: (item) => setComponent(item.component),
+    collect: monitor => ({
+      isOver: !!monitor.isOver(),
+    })
   })
-  
+
   return (
-    <div ref={drop} style={{ backgroundColor: 'red' }}>...</div>
+    <div ref={drop} style={{ backgroundColor: 'red' }}>
+      <NamedComponent type={component}>{component}</NamedComponent>
+    </div>
   );
 }
+
+const componentRelations = {
+  ['Component1']: Label,
+  ['Component2']: Label
+};
+
+const NamedComponent = ({ type, children, props }) => {
+  if (componentRelations[type] == null) return null;
+  const AnotherComponent = componentRelations[type];
+  return <AnotherComponent {...props}>{children}</AnotherComponent>;
+};
 
 class App extends Component {
   render() {
