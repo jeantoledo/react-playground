@@ -65,7 +65,7 @@ const App = props => {
         <SplitPane className="main-content" split="vertical" minSize={50} defaultSize={300}>
           <ComponentList />
           <div>
-            <SplitPane split="vertical" minSize={50} defaultSize={300}>
+            <SplitPane split="vertical" minSize={50} defaultSize={'70%'}>
               <div className="stage">
                 <Preview
                   currentComponentIndex={currentComponentIndex}
