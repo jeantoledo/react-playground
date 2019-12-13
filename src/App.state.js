@@ -22,7 +22,7 @@ class StatefulApp extends React.Component {
 
   handleComponentChanged(componentIndex, changedComponent) {
     const { components } = this.state
-    components[componentIndex].data = changedComponent
+    components[componentIndex] = { data: changedComponent, properties: {} }
 
     this.setState(Object.assign(this.state, { components, currentComponentIndex: componentIndex }))
   }
