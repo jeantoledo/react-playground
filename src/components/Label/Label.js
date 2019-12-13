@@ -10,4 +10,8 @@ Label.propTypes = {
   children: PropTypes.node.isRequired
 }
 
+Label.defaultProps = {
+  children: "Label"
+}
+
 export default Label;

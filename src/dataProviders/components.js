@@ -15,7 +15,7 @@ const components = [
   },
   {
     name: "Textbox",
-    code: "textbox",
+    code: "Textbox",
     propertyLabels: {
       value: "Texto"
     }

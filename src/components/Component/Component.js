@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from 'react-bootstrap/Button';
+import Button from '../Button';
 import Textbox from '../Textbox'
 import Label from '../Label'
 
@@ -10,10 +10,10 @@ const componentRelations = {
   Textbox: Textbox
 };
 
-const Component = ({ component, props }) => {
+const Component = ({ component, properties }) => {
   const AnotherComponent = componentRelations[component.code]
   if (!AnotherComponent) return null;
-  return <AnotherComponent {...props}>{component.name}</AnotherComponent>;
+  return <AnotherComponent {...properties} />;
 };
 
 export default Component;

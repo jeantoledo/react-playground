@@ -15,8 +15,6 @@ class StatefulApp extends React.Component {
     const { properties } = this.state
     properties[changedProperty.code] = changedProperty.value
 
-    console.log(properties)
-
     this.setState(Object.assign(this.state, { properties }))
   }
 

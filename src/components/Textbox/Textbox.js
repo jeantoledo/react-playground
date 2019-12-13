@@ -1,8 +1,8 @@
 import React from 'react';
 import FormControl from 'react-bootstrap/FormControl';
 
-const Textbox = ({ className, children, onChange }) => {
-  return <FormControl className={className} value={children} onChange={onChange} />
+const Textbox = ({ className, value, onChange }) => {
+  return <FormControl className={className} value={value} onChange={onChange} />
 }
 
 Textbox.defaultProps = {
