@@ -5,18 +5,23 @@ import Component from '../Component'
 
 import './style.css';
 
-const Preview = props => {
-  const [ component, setComponent ] = useState("Label")
+const Preview = () => {
+  const [ components, setComponents ] = useState([])
 
   const [ _, drop ] = useDrop({
     accept: "component",
-    drop: item => setComponent(item.component),
+    drop: item => {
+      const newComponent = { type: item.component };
+      setComponents(components => components.concat(newComponent));
+    },
     collect: monitor => ({ isOver: !!monitor.isOver() })
   })
 
   return (
     <div className="stage-grid" ref={drop}>
-      <Component type={component}>{component}</Component>
+      { components && components.map(component => (
+        <Component type={component.type}>{component.type}</Component>
+      ))}
     </div>
   );
 }
