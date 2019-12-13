@@ -27,9 +27,7 @@ const App = props => {
   } = props
 
   const generateCodeString = () => {
-    let code = [];
-
-    components.map(({ data, properties }) => {
+    const lines = components.map(({ data, properties }) => {
       let childrenString = properties.children || '';
 
       let propsString = Object.keys(properties).map(key => {
@@ -37,17 +35,23 @@ const App = props => {
         return `${key}="${properties[key]}"`;
       }).join(' ');
 
-      let componentString = `<${data.code} ${propsString}>${childrenString}<\\${data.code}>`;
-
-      code.push(componentString);
+      return `<${data.code} ${propsString}>${childrenString}<\\${data.code}>`;
     });
 
-    return code;
+    return `
+    import React from 'react';
+
+    const Page = () => (
+      ${lines.join('\n')}
+    );
+
+    export default Page;
+    `;
   }
 
   const downloadCode = () => {
     const code = generateCodeString();
-    Utils.downloadStringAsFile('code.jsx', code);
+    Utils.downloadStringAsFile('Page.jsx', code);
   };
 
   return (
