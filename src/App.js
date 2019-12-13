@@ -65,7 +65,11 @@ const App = props => {
         <SplitPane className="main-content" split="vertical" minSize={50} defaultSize={300}>
           <ComponentList />
           <div>
-            <SplitPane split="vertical" minSize={50} defaultSize={'70%'}>
+            <SplitPane
+              split="vertical"
+              minSize={50}
+              defaultSize={components && components.length ? '70%' : '100%'}
+            >
               <div className="stage">
                 <Preview
                   currentComponentIndex={currentComponentIndex}
@@ -76,7 +80,11 @@ const App = props => {
                 />
               </div>
               <div>
-                <ComponentProperties currentComponentIndex={currentComponentIndex} components={components} onPropertyChanged={onPropertyChanged} />
+                <ComponentProperties
+                  currentComponentIndex={currentComponentIndex}
+                  components={components}
+                  onPropertyChanged={onPropertyChanged}
+                />
               </div>
             </SplitPane>
           </div>
