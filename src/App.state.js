@@ -11,6 +11,10 @@ class StatefulApp extends React.Component {
     }
   }
 
+  handleChangeCurrentComponentIndex(newIndex) {
+    this.setState(Object.assign(this.state, { currentComponentIndex: newIndex }))
+  }
+
   handlePropertyChanged(changedProperty) {
     const { currentComponentIndex, components } = this.state
 
@@ -42,10 +46,11 @@ class StatefulApp extends React.Component {
 
     return (
       <App currentComponentIndex={currentComponentIndex} components={components}
-           onPropertyChanged={this.handlePropertyChanged.bind(this)}
-           onComponentChanged={this.handleComponentChanged.bind(this)}
-           onComponentAdded={this.handleComponentAdded.bind(this)}
-           />
+        onPropertyChanged={this.handlePropertyChanged.bind(this)}
+        onComponentChanged={this.handleComponentChanged.bind(this)}
+        onComponentAdded={this.handleComponentAdded.bind(this)}
+        onChangeCurrentComponentIndex={this.handleChangeCurrentComponentIndex.bind(this)}
+      />
     )
   }
 }
