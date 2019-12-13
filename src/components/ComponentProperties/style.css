@@ -10,3 +10,15 @@
   font-size: 14px;
   margin-bottom: 24px;
 }
+
+.sidebar-property__item-name {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.sidebar-property__item-value {
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 15px;
+}

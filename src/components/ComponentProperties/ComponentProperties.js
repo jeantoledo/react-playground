@@ -16,8 +16,8 @@ class ComponentProperty extends React.Component {
 
     return (
       <div className="sidebar-properties__item">
-        <div className="property__name">{name}:</div>
-        <Textbox onChange={this.handleChange.bind(this)}>{value}</Textbox>
+        <div className="sidebar-property__item-name">{name}:</div>
+        <Textbox className="sidebar-property__item-value" onChange={this.handleChange.bind(this)}>{value}</Textbox>
       </div>
     )
   }
