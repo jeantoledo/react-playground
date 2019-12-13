@@ -11,11 +11,13 @@ class StatefulApp extends React.Component {
   }
 
   handlePropertyChanged(changedProperty) {
-    const currentProperties = this.state.currentProperties
+    const state = this.state
+
+    const currentProperties = state.currentProperties
     const [ property ] = currentProperties.filter(prop => prop.name === changedProperty.name)
     property.value = changedProperty.value
 
-    this.setState(Object.assign(this.state, { currentProperties }))
+    this.setState(Object.assign(state, { currentProperties }))
   }
 
   render() {
