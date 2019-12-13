@@ -8,6 +8,7 @@ import './App.css';
 import './UISplitPane.style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Header from './Header';
 import Preview from './components/Preview';
 import ComponentList from './components/ComponentList'
 import ComponentProperties from './components/ComponentProperties'
@@ -16,23 +17,31 @@ const App = props => {
   const { properties, onPropertyChanged } = props
 
   return (
-    <DndProvider backend={Backend}>
-      <SplitPane split="vertical" minSize={50} defaultSize={300}>
-        <div>
-          <ComponentList />
-        </div>
-        <div>
-          <SplitPane split="vertical" minSize={50} defaultSize={300}>
-            <div>
-              <Preview />
+    <div>
+      <Header>
+        <a className="brand" href="#"><strong>RD</strong> | Design Studio</a>
+      </Header>
+      <DndProvider backend={Backend}>
+        <SplitPane split="vertical" minSize={50} defaultSize={300}>
+          <div className="sidebar-components">
+            <div className="sidebar-components__title">
+              Componentes
             </div>
-            <div>
-              <ComponentProperties properties={properties} onPropertyChanged={onPropertyChanged} />
-            </div>
-          </SplitPane>
-        </div>
-      </SplitPane>
-    </DndProvider>
+            <ComponentList />
+          </div>
+          <div>
+            <SplitPane split="vertical" minSize={50} defaultSize={300}>
+              <div>
+                <Preview />
+              </div>
+              <div>
+                <ComponentProperties properties={properties} onPropertyChanged={onPropertyChanged} />
+              </div>
+            </SplitPane>
+          </div>
+        </SplitPane>
+      </DndProvider>
+    </div>
   )
 }
 
