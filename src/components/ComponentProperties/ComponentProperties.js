@@ -37,7 +37,7 @@ const ComponentProperties = ({ currentComponentIndex, components, onPropertyChan
 
   return (
     <div className="sidebar-properties">
-      <div className="sidebar-properties__title">Configurações</div>
+      <div className="sidebar-properties__title">Propriedades - {component.data.name}</div>
       {
         formattedProperies.map((property, index) => (
           <ComponentProperty key={index} property={property} onPropertyChanged={onPropertyChanged} />
