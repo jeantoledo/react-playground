@@ -1,6 +1,6 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import DragableListItem from '../DragableListItem';
+import DragableListItem from './DragableListItem';
 
 import ComponentDataProvider from '../../dataProviders/components'
 

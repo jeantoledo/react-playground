@@ -22,15 +22,16 @@ class ComponentProperty extends React.Component {
   }
 }
 
-const ComponentProperties = ({ properties, component, onPropertyChanged }) => {
+const ComponentProperties = ({ currentComponentIndex, components, onPropertyChanged }) => {
+  const component = components[currentComponentIndex]
   if (!component) return null
 
-  const formattedProperies = Object.keys(component.propertyLabels)
+  const formattedProperies = Object.keys(component.data.propertyLabels)
     .map(code => {
       return {
         code,
-        label: component.propertyLabels[code],
-        value: (properties && properties[code]) || ""
+        label: component.data.propertyLabels[code],
+        value: (component.properties && component.properties[code]) || ""
       }
     })
 

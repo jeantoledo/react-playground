@@ -7,3 +7,12 @@
   height: 100vh;
   border: 1px solid #d1d1d1;
 }
+
+.placeholder {
+  height: 100px;
+}
+
+.placeholder-over {
+  height: 100px;
+  background-color: #ff0000;
+}

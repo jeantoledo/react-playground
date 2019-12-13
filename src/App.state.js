@@ -6,29 +6,45 @@ class StatefulApp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      properties: {}, //[ { name: 'Título', value: 'A volta' }, { name: 'Subtítulo', value: 'dos que não foram' } ]
-      component: null
+      currentComponentIndex: -1,
+      components: [] // tuple of component and properties
     }
   }
 
   handlePropertyChanged(changedProperty) {
-    const { properties } = this.state
+    const { currentComponentIndex, components } = this.state
+
+    const properties = components[currentComponentIndex].properties
     properties[changedProperty.code] = changedProperty.value
 
-    this.setState(Object.assign(this.state, { properties }))
+    this.setState(Object.assign(this.state, { components }))
   }
 
-  handleComponentChanged(changedComponent) {
-    this.setState(Object.assign(this.state, { component: changedComponent, properties: {} }))
+  handleComponentChanged(componentIndex, changedComponent) {
+    const { components } = this.state
+    components[componentIndex].data = changedComponent
+
+    this.setState(Object.assign(this.state, { components, currentComponentIndex: componentIndex }))
+  }
+
+  handleComponentAdded(newComponent) {
+    const { components } = this.state
+    components.push({
+      data: newComponent,
+      properties: {}
+    })
+
+    this.setState(Object.assign(this.state, { components, currentComponentIndex: components.length - 1 }))
   }
 
   render() {
-    const { component, properties } = this.state
+    const { components, currentComponentIndex } = this.state
 
     return (
-      <App properties={properties} component={component}
+      <App currentComponentIndex={currentComponentIndex} components={components}
            onPropertyChanged={this.handlePropertyChanged.bind(this)}
            onComponentChanged={this.handleComponentChanged.bind(this)}
+           onComponentAdded={this.handleComponentAdded.bind(this)}
            />
     )
   }
