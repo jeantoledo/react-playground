@@ -10,8 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './Header';
 import Preview from './components/Preview';
-import ComponentList from './components/ComponentList'
-import ComponentProperties from './components/ComponentProperties'
+import ComponentList from './components/ComponentList';
+import ComponentProperties from './components/ComponentProperties';
+
+import downloadIcon from './assets/download.svg';
 
 const App = props => {
   const {
@@ -27,6 +29,7 @@ const App = props => {
     <div>
       <Header>
         <a className="brand" href="#"><strong>RD</strong> | Design Studio</a>
+        <img className="download-icon" src={downloadIcon} onClick={() => alert('download')}></img>
       </Header>
       <DndProvider backend={Backend}>
         <SplitPane className="main-content" split="vertical" minSize={50} defaultSize={300}>

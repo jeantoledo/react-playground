@@ -38,3 +38,13 @@ strong {
   height: calc(100vh - 56px);
   display: flex;
 }
+
+.download-icon {
+  position: absolute;
+  right: 0;
+  padding: 10px 20px;
+}
+
+.download-icon:hover {
+  cursor: pointer;
+}
