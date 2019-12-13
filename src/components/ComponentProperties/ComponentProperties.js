@@ -1,5 +1,4 @@
 import React from 'react';
-import shortid from 'shortid';
 import Textbox from '../Textbox'
 
 import './style.css';
@@ -28,8 +27,8 @@ const ComponentProperties = ({ properties, onPropertyChanged }) => {
     <div className="sidebar-properties">
       <div className="sidebar-properties__title">Configurações</div>
       {
-        properties.map(property => (
-          <ComponentProperty key={shortid.generate()} property={property} onPropertyChanged={onPropertyChanged} />
+        properties.map((property, index) => (
+          <ComponentProperty key={index} property={property} onPropertyChanged={onPropertyChanged} />
         ))
       }
     </div>
