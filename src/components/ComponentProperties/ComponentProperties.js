@@ -7,27 +7,38 @@ class ComponentProperty extends React.Component {
   handleChange(event) {
     const { property, onPropertyChanged } = this.props
 
-    onPropertyChanged({ name: property.name, value: event.target.value })
+    onPropertyChanged({ code: property.code, value: event.target.value })
   }
 
   render() {
-    const { name, value } = this.props.property
+    const { property } = this.props
 
     return (
       <div className="sidebar-properties__item">
-        <div className="sidebar-property__item-name">{name}:</div>
-        <Textbox className="sidebar-property__item-value" onChange={this.handleChange.bind(this)}>{value}</Textbox>
+        <div className="sidebar-property__item-name">{property.label}:</div>
+        <Textbox className="sidebar-property__item-value" onChange={this.handleChange.bind(this)}>{property.value}</Textbox>
       </div>
     )
   }
 }
 
-const ComponentProperties = ({ properties, onPropertyChanged }) => {
+const ComponentProperties = ({ properties, component, onPropertyChanged }) => {
+  if (!component) return null
+
+  const formattedProperies = Object.keys(component.propertyLabels)
+    .map(code => {
+      return {
+        code,
+        label: component.propertyLabels[code],
+        value: (properties && properties[code]) || ""
+      }
+    })
+
   return (
     <div className="sidebar-properties">
       <div className="sidebar-properties__title">Configurações</div>
       {
-        properties.map((property, index) => (
+        formattedProperies.map((property, index) => (
           <ComponentProperty key={index} property={property} onPropertyChanged={onPropertyChanged} />
         ))
       }

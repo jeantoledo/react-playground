@@ -14,7 +14,7 @@ import ComponentList from './components/ComponentList'
 import ComponentProperties from './components/ComponentProperties'
 
 const App = props => {
-  const { properties, onPropertyChanged } = props
+  const { properties, component, onPropertyChanged, onComponentChanged } = props
 
   return (
     <div>
@@ -27,10 +27,10 @@ const App = props => {
           <div>
             <SplitPane split="vertical" minSize={50} defaultSize={300}>
               <div className="stage">
-                <Preview />
+                <Preview properties={properties} component={component} onComponentChanged={onComponentChanged} />
               </div>
               <div>
-                <ComponentProperties properties={properties} onPropertyChanged={onPropertyChanged} />
+                <ComponentProperties properties={properties} component={component} onPropertyChanged={onPropertyChanged} />
               </div>
             </SplitPane>
           </div>

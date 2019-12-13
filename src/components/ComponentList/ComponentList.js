@@ -2,6 +2,8 @@ import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import DragableListItem from '../DragableListItem';
 
+import ComponentDataProvider from '../../dataProviders/components'
+
 import './style.css';
 
 const ComponentList = () => (
@@ -10,9 +12,10 @@ const ComponentList = () => (
       Componentes
     </div>
     <ListGroup>
-      <DragableListItem component="Label">Label</DragableListItem>
-      <DragableListItem component="UIButton">Button</DragableListItem>
-      <DragableListItem component="Textbox">Textbox</DragableListItem>
+      {
+        ComponentDataProvider.getComponents()
+          .map((componentData, index) => <DragableListItem key={index} component={componentData}>{componentData.name}</DragableListItem>)
+      }
     </ListGroup>
   </div>
 )

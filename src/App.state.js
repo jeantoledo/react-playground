@@ -6,24 +6,33 @@ class StatefulApp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentProperties: [ { name: 'Título', value: 'A volta' }, { name: 'Subtítulo', value: 'dos que não foram' } ]
+      properties: {}, //[ { name: 'Título', value: 'A volta' }, { name: 'Subtítulo', value: 'dos que não foram' } ]
+      component: null
     }
   }
 
   handlePropertyChanged(changedProperty) {
-    const state = this.state
+    const { properties } = this.state
+    properties[changedProperty.code] = changedProperty.value
 
-    const currentProperties = state.currentProperties
-    const [ property ] = currentProperties.filter(prop => prop.name === changedProperty.name)
-    property.value = changedProperty.value
+    console.log(properties)
 
-    this.setState(Object.assign(state, { currentProperties }))
+    this.setState(Object.assign(this.state, { properties }))
+  }
+
+  handleComponentChanged(changedComponent) {
+    this.setState(Object.assign(this.state, { component: changedComponent, properties: {} }))
   }
 
   render() {
-    const properties = this.state.currentProperties
+    const { component, properties } = this.state
 
-    return <App properties={properties} onPropertyChanged={this.handlePropertyChanged.bind(this)} />
+    return (
+      <App properties={properties} component={component}
+           onPropertyChanged={this.handlePropertyChanged.bind(this)}
+           onComponentChanged={this.handleComponentChanged.bind(this)}
+           />
+    )
   }
 }
 

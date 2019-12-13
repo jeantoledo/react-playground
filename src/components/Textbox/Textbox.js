@@ -5,4 +5,8 @@ const Textbox = ({ className, children, onChange }) => {
   return <FormControl className={className} value={children} onChange={onChange} />
 }
 
+Textbox.defaultProps = {
+  onChange: event => null
+}
+
 export default Textbox
