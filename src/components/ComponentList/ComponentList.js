@@ -12,10 +12,11 @@ const ComponentList = () => (
       Componentes
     </div>
     <ListGroup>
-      {
-        ComponentDataProvider.getComponents()
-          .map((componentData, index) => <DragableListItem key={index} component={componentData}>{componentData.name}</DragableListItem>)
-      }
+      { ComponentDataProvider.getComponents().map((componentData, index) =>
+        <DragableListItem key={index} component={componentData}>
+          {componentData.name}
+        </DragableListItem>
+      ) }
     </ListGroup>
   </div>
 )

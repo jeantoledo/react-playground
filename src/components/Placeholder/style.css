@@ -1,0 +1,3 @@
+.component-item:hover {
+  border: 1px dashed red;
+}
