@@ -8,22 +8,31 @@ import './App.css';
 import './UISplitPane.style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Header from './Header';
 import Preview from './components/Preview';
 import ComponentList from './components/ComponentList'
 
 class App extends Component {
   render() {
     return (
-      <DndProvider backend={Backend}>
-        <SplitPane split="vertical" minSize={50} defaultSize={300}>
-          <div>
-            <ComponentList />
-          </div>
-          <div>
-            <Preview />
-          </div>
-        </SplitPane>
-      </DndProvider>
+      <div>
+        <Header>
+          <a className="brand" href="#"><strong>RD</strong> | Design Studio</a>
+        </Header>
+        <DndProvider backend={Backend}>
+          <SplitPane split="vertical" minSize={50} defaultSize={300}>
+            <div className="sidebar-components">
+              <div className="sidebar-components__title">
+                Componentes
+              </div>
+              <ComponentList />
+            </div>
+            <div>
+              <Preview />
+            </div>
+          </SplitPane>
+        </DndProvider>
+      </div>
     );
   }
 }
