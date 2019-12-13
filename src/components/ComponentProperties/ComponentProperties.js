@@ -1,4 +1,5 @@
 import React from 'react';
+import shortid from 'shortid';
 import Textbox from '../Textbox'
 
 class ComponentProperty extends React.Component {
@@ -22,7 +23,7 @@ class ComponentProperty extends React.Component {
 
 const ComponentProperties = ({ properties, onPropertyChanged }) => {
   return properties.map(property => (
-    <ComponentProperty property={property} onPropertyChanged={onPropertyChanged} />
+    <ComponentProperty key={shortid.generate()} property={property} onPropertyChanged={onPropertyChanged} />
   ))
 }
 
