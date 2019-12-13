@@ -23,12 +23,7 @@ const App = props => {
       </Header>
       <DndProvider backend={Backend}>
         <SplitPane split="vertical" minSize={50} defaultSize={300}>
-          <div className="sidebar-components">
-            <div className="sidebar-components__title">
-              Componentes
-            </div>
-            <ComponentList />
-          </div>
+          <ComponentList />
           <div>
             <SplitPane split="vertical" minSize={50} defaultSize={300}>
               <div>

@@ -1,0 +1,12 @@
+.sidebar-properties {
+  padding: 24px 16px;
+  background-color: #EEEEEE;
+  height: 100vh;
+}
+
+.sidebar-properties__title {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 24px;
+}

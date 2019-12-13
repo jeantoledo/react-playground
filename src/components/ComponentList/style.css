@@ -1,0 +1,24 @@
+.sidebar-components {
+  padding: 24px 16px;
+  background: #EEEEEE;
+  height: 100vh;
+}
+
+.sidebar-components__title {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.list-group-item {
+  background-color: #DDDDDD;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 10px;
+  cursor: grab;
+}
+
+.list-group-item:active {
+  cursor: grabbing;
+}
