@@ -14,6 +14,7 @@ import ComponentList from './components/ComponentList';
 import ComponentProperties from './components/ComponentProperties';
 
 import downloadIcon from './assets/download.svg';
+import Utils from './utils/Utils';
 
 const App = props => {
   const {
@@ -25,12 +26,37 @@ const App = props => {
     onChangeCurrentComponentIndex
   } = props
 
+  const generateCodeString = () => {
+    let code = [];
+
+    components.map(({ data, properties }) => {
+      let childrenString = properties.children || '';
+
+      let propsString = Object.keys(properties).map(key => {
+        if(key === 'children') return '';
+        return `${key}="${properties[key]}"`;
+      }).join(' ');
+
+      let componentString = `<${data.code} ${propsString}>${childrenString}<\\${data.code}>`;
+
+      code.push(componentString);
+    });
+
+    return code;
+  }
+
+  const downloadCode = () => {
+    const code = generateCodeString();
+    Utils.downloadStringAsFile('code.jsx', code);
+  };
+
   return (
     <div>
       <Header>
         <a className="brand" href="#"><strong>RD</strong> | Design Studio</a>
-        <img className="download-icon" src={downloadIcon} onClick={() => alert('download')}></img>
+        <img className="download-icon" src={downloadIcon} onClick={downloadCode}></img>
       </Header>
+
       <DndProvider backend={Backend}>
         <SplitPane className="main-content" split="vertical" minSize={50} defaultSize={300}>
           <ComponentList />
