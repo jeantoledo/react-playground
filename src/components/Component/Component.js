@@ -3,11 +3,13 @@ import React from 'react';
 import Button from '../Button';
 import Textbox from '../Textbox'
 import Label from '../Label'
+import TitleAndSubtitle from '../TitleAndSubtitle'
 
 const componentRelations = {
   Label: Label,
   UIButton: Button,
-  Textbox: Textbox
+  Textbox: Textbox,
+  TitleAndSubtitle: TitleAndSubtitle
 };
 
 const Component = ({ component, properties }) => {

@@ -19,6 +19,14 @@ const components = [
     propertyLabels: {
       value: "Texto"
     }
+  },
+  {
+    name: "TitleAndSubtitle",
+    code: "TitleAndSubtitle",
+    propertyLabels: {
+      title: "Título",
+      subtitle: "Subtítulo"
+    }
   }
 ]
 
