@@ -11,9 +11,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
 import Preview from './components/Preview';
 import ComponentList from './components/ComponentList'
+import ComponentProperties from './components/ComponentProperties'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentProperties: [ { name: 'Título', value: 'A volta' }, { name: 'Subtítulo', value: 'dos que não foram' } ]
+    }
+  }
+
+  handlePropertyChanged(changedProperty) {
+    const currentProperties = this.state.currentProperties
+    const [ property ] = currentProperties.filter(prop => prop.name === changedProperty.name)
+    property.value = changedProperty.value
+
+    this.setState(Object.assign(this.state, { currentProperties }))
+  }
+
   render() {
+    const properties = this.state.currentProperties
+
     return (
       <div>
         <Header>
@@ -28,7 +46,14 @@ class App extends Component {
               <ComponentList />
             </div>
             <div>
-              <Preview />
+              <SplitPane split="vertical" minSize={50} defaultSize={300}>
+                <div>
+                  <Preview />
+                </div>
+                <div>
+                  <ComponentProperties properties={properties} onPropertyChanged={this.handlePropertyChanged.bind(this)} />
+                </div>
+              </SplitPane>
             </div>
           </SplitPane>
         </DndProvider>

@@ -28,6 +28,11 @@ strong {
   padding: 0 20px;
 }
 
+.brand:hover, .brand:active {
+  color: #FFF;
+  text-decoration: none;
+}
+
 .sidebar-components {
   padding: 24px 16px;
   background: #EEEEEE;
