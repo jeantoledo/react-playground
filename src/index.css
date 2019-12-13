@@ -39,12 +39,12 @@ strong {
   display: flex;
 }
 
-.download-icon {
-  position: absolute;
+.drag-and-drop-icon {
   right: 0;
+  left: 0;
   padding: 10px 20px;
 }
 
-.download-icon:hover {
-  cursor: pointer;
+.center {
+  text-align: center;
 }
