@@ -31,22 +31,21 @@ const App = props => {
       let childrenString = properties.children || '';
 
       let propsString = Object.keys(properties).map(key => {
-        if(key === 'children') return '';
-        return `${key}="${properties[key]}"`;
-      }).join(' ');
+        if (key === 'children') return '';
+          return `${key}="${properties[key]}"`;
+        }).join(' ');
 
-      return `<${data.code} ${propsString}>${childrenString}<\\${data.code}>`;
-    });
+        return `<${data.code} ${propsString}>${childrenString}</${data.code}>`;
+      });
 
     return `
-    import React from 'react';
+import React from 'react';
 
-    const Page = () => (
-      ${lines.join('\n')}
-    );
+const Page = () => (
+  ${lines.join('\n')}
+);
 
-    export default Page;
-    `;
+export default Page;`;
   }
 
   const downloadCode = () => {
