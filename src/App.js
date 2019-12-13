@@ -26,7 +26,7 @@ const App = props => {
           <ComponentList />
           <div>
             <SplitPane split="vertical" minSize={50} defaultSize={300}>
-              <div>
+              <div className="stage">
                 <Preview />
               </div>
               <div>
