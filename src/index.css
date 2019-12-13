@@ -35,4 +35,6 @@ strong {
 
 .stage {
   padding: 32px;
+  height: calc(100vh - 56px);
+  display: flex;
 }

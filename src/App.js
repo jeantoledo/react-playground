@@ -22,7 +22,7 @@ const App = props => {
         <a className="brand" href="#"><strong>RD</strong> | Design Studio</a>
       </Header>
       <DndProvider backend={Backend}>
-        <SplitPane split="vertical" minSize={50} defaultSize={300}>
+        <SplitPane className="main-content" split="vertical" minSize={50} defaultSize={300}>
           <ComponentList />
           <div>
             <SplitPane split="vertical" minSize={50} defaultSize={300}>
