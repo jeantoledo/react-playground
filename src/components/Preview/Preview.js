@@ -3,6 +3,8 @@ import { useDrop } from 'react-dnd';
 
 import Component from '../Component'
 
+import './style.css';
+
 const Preview = props => {
   const [ component, setComponent ] = useState("Label")
 
@@ -13,7 +15,7 @@ const Preview = props => {
   })
 
   return (
-    <div ref={drop} style={{ backgroundColor: 'red' }}>
+    <div className="stage-grid" ref={drop}>
       <Component type={component}>{component}</Component>
     </div>
   );
